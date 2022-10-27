@@ -8,6 +8,7 @@ import SigninScreen from "./src/screens/SigninScreen";
 import TrackCreateScreen from "./src/screens/TrackCreateScreen";
 import TrackListScreen from "./src/screens/TrackListScreen";
 import TrakDetailScreen from "./src/screens/TrackDetailScreen";
+import "react-native-gesture-handler";
 
 const switchNavigator = createSwitchNavigator({
   loginFlow: createStackNavigator({
@@ -15,11 +16,10 @@ const switchNavigator = createSwitchNavigator({
     Signin: SigninScreen,
   }),
   mainFlow: createBottomTabNavigator({
-    trackListFlow: {
+    trackListFlow: createStackNavigator({
       TrackList: TrackListScreen,
       TrackDetail: TrakDetailScreen,
-    },
-
+    }),
     TrackCreate: TrackCreateScreen,
     Account: AccountScreen,
   }),
